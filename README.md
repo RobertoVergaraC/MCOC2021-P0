@@ -24,7 +24,7 @@
   * Numero de (SO)DIMM: 2
 * Tarjeta Gráfica
   * Marca / Modelo: Nvidia GeForce MX130
-  * Memoria dedicada: 8192 MB
+  * Memoria dedicada: 2048 MB GDDR5
   * Resolución: 1920 x 1080
 * Disco 1: 
   * Marca: SanDisk
