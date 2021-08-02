@@ -12,7 +12,7 @@
   * Numero de núcleos: 4 
   * Humero de hilos (Procesadores lógicos): 8
   * Arquitectura: x86_64
-  * Set de instrucciones: Intel SSE4.1, Intel SSE4.2, Intel AVX2
+  * Set de instrucciones: Intel® SSE4.1, Intel® SSE4.2, Intel® AVX2
 * Tamaño de las cachés del procesador
   * L1: 256KB
   * L1: 1.0MB
