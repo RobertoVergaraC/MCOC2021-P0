@@ -42,7 +42,7 @@
 * Dirección MAC de la tarjeta wifi: 20:16:B9:44:BD:A3
 * Dirección IP (Interna, del router): 192.168.100.2
 * Dirección IP (Externa, del ISP): 186.67.234.139
-* Proveedor internet: S.A. Entel S.A. (fibra óptica)
+* Proveedor internet: Entel Chile S.A. (fibra óptica)
 
 
 
