@@ -23,6 +23,7 @@ for linea in fid:
 
 fid.close()
 
+
 #LABELS y sus valores representativos
 g1ylabel = ["0.1 ms", "1 ms", "10 ms", "0.1 s", "1 s", "10 s", "1 min", "10 min"]
 g1yvalue = [0.0001, 0.001, 0.01, 0.1, 1, 10, 60, 600] #Tiempo
@@ -66,5 +67,7 @@ plt.yticks(g2yvalue, g2ylabel)                                              #Lab
 plt.xticks(xlabel1, xlabel2, rotation = 45)                                 #Labels eje x
 plt.axhline(y = virtual_memory().total, linestyle = '--', color = "black")  #Memoria RAM
 plt.grid(True)
+
+plt.savefig("Desempeño MATMUL", dpi = 300, bbox_inches = 'tight')
 
 plt.show()

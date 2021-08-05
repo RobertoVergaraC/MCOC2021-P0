@@ -46,6 +46,10 @@
 
 # Desempeño MATMUL
 
+En primer lugar cabe señalar que rendimiento.txt corresponde a un archivo que es una lista de listas, en donde cada línea es considerada una nueva corrida y está ordenado de la siguiente manera : [Ns],[dts],[mems]
+
+![Desempeño Matmul](Desempeño MATMUL.png)
+
 # Preguntas
 
 * ¿Cómo difiere del gráfico del profesor/ayudante?
@@ -63,7 +67,9 @@
 * ¿Qué versión de numpy está usando?
   NumPy Version: 1.21.1
 
-* Durante la ejecución de su código ¿se utiliza más de un procesador? Muestre una imagen (screenshot) de su uso de procesador durante alguna corrida para confirmar. 
+* Durante la ejecución de su código ¿se utiliza más de un procesador? Muestre una imagen (screenshot) de su uso de procesador durante alguna corrida para confirmar.
+
+![Procesador durante corrida](Procesador durante corrida.jpg) 
 
 
 
