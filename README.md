@@ -48,7 +48,7 @@
 
 En primer lugar cabe señalar que rendimiento.txt corresponde a un archivo que es una lista de listas, en donde cada línea es considerada una nueva corrida y está ordenado de la siguiente manera : [Ns],[dts],[mems]
 
-![Desempeño Matmul](Desempeño MATMUL.png)
+![Desempeño Matmul](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Desempe%C3%B1o%20MATMUL.png)
 
 # Preguntas
 
@@ -69,7 +69,7 @@ En primer lugar cabe señalar que rendimiento.txt corresponde a un archivo que e
 
 * Durante la ejecución de su código ¿se utiliza más de un procesador? Muestre una imagen (screenshot) de su uso de procesador durante alguna corrida para confirmar.
 
-![Procesador durante corrida](Procesador durante corrida.jpg) 
+![Procesador durante corrida](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Procesador%20durante%20corrida.jpg) 
 
 
 
