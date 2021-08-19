@@ -103,13 +103,14 @@ A continuación se muestrán las comparaciones de los casos por cada tipo de dat
 ![LONGDOUBLE](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Desempe%C3%B1o%20INV%20CASO%20LONGDOUBLE.png)
 
 
-Además tanto el desempeño del procesador como de la memoria en todos los casos que los códigos funcionaron el resultado eran prácticamente idénticos, es decir el procesador usando casi todos sus recursos (todos incluso), mientras que la memoria prácticamente no cambiaba y si lo hacía era muy leve. Si hubo alguna diferencia fue prácticamente imperceptible).
+Además tanto el desempeño del procesador como de la memoria en todos los casos que los códigos funcionaron los resultado fueron prácticamente idénticos, es decir el procesador usando casi todos sus recursos (todos incluso), mientras que la memoria prácticamente no cambiaba y si lo hacía era muy leve. Si hubo alguna diferencia fue prácticamente imperceptible.
 
 **Procesador durante corridas:**
 ![CPU_INV](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/CPU%20DURANTE%20CORRIDA%20INV.jpg)
 
 **Memoria durante corridas:**
-![MEMORIA_INV](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/MEMORIA%20DURANTE%20CORRIDA%20INV.jpg)
+![MEMORIA_INV](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/MEMORIA%20DURANTE%20CORRIDA%20INV.jpg)  
+  
 
 ### Preguntas
 
