@@ -167,10 +167,15 @@ A continuación se muestra una tabla con los desempeños del procesador y la mem
 
 Se puede evidenciar que en general en las corridas el procesadro alcanza su máximo en los puntos con mayores valores de N, y es en esos casos que la memoria ram tiende a subir un poco, para ayudar a procesar la información. Otro aspecto interesante a señalar, que para el caso B opción II y V el procesador no usaba en promedio ni el 50% y la memoria nunca se vio afectada, lo curioso es que estos casos fueron los que más tiempo demoraron en ejecutarse.  
 
-A contunación se muestras los gráficos encontrados:
+A continuación se muestran los gráficos encontrados:
 
-| **CASO A (float)**  ![A (float)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Comparaci%C3%B3n%20Caso%20A%20(float).png) | **CASO A (double)**  ![A (double)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Comparaci%C3%B3n%20Caso%20A%20(double).png) |
-| **CASO B (float)**  ![B (float)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Comparaci%C3%B3n%20Caso%20B%20(float).png) | **CASO B (double)**  ![B (double)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Comparaci%C3%B3n%20Caso%20B%20(double).png) |
+| **CASO A (float)** | **CASO A (double) |
+| ------------- | ------------- |
+| ![A (float)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Comparaci%C3%B3n%20Caso%20A%20(float).png) | ![A (double)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Comparaci%C3%B3n%20Caso%20A%20(double).png) |
+
+| **CASO B (float)** | **CASO B (double) |
+| ------------- | ------------- |
+| ![B (float)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Comparaci%C3%B3n%20Caso%20B%20(float).png) | ![B (double)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Comparaci%C3%B3n%20Caso%20B%20(double).png) |
 
 
 ### Preguntas  
