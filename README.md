@@ -169,11 +169,11 @@ Se puede evidenciar que en general en las corridas el procesadro alcanza su máx
 
 A continuación se muestran los gráficos encontrados:
 
-| **CASO A (float)** | **CASO A (double) |
+| **CASO A (float)** | **CASO A (double)** |
 | ------------- | ------------- |
 | ![A (float)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Comparaci%C3%B3n%20Caso%20A%20(float).png) | ![A (double)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Comparaci%C3%B3n%20Caso%20A%20(double).png) |
 
-| **CASO B (float)** | **CASO B (double) |
+| **CASO B (float)** | **CASO B (double)** |
 | ------------- | ------------- |
 | ![B (float)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Comparaci%C3%B3n%20Caso%20B%20(float).png) | ![B (double)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Comparaci%C3%B3n%20Caso%20B%20(double).png) |
 
