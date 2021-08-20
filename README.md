@@ -163,7 +163,14 @@ A continuación se muestra una tabla con los desempeños del procesador y la mem
 | B.IV.1 (double) (```driver='evr'``` and ```overwrite_a=False```) | ![B.IV.1 (double)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Fotos%20Caso%20B%20(double)/CPU%20CASO%20B.IV.1%20(double).JPG) | ![B.IV.1 (double)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Fotos%20Caso%20B%20(double)/MEMORIA%20CASO%20B.IV.1%20(double).JPG) |
 | B.IV.2 (double) (```driver='evr'``` and ```overwrite_a=True```) | ![B.IV.2 (double)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Fotos%20Caso%20B%20(double)/CPU%20CASO%20B.IV.2%20(double).JPG) | ![B.IV.2 (double)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Fotos%20Caso%20B%20(double)/MEMORIA%20CASO%20B.IV.2%20(double).JPG) |
 | B.V.1 (double) (```driver='evx'``` and ```overwrite_a=False```) | ![B.V.1 (double)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Fotos%20Caso%20B%20(double)/CPU%20CASO%20B.V.1%20(double).JPG) | ![B.V.1 (double)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Fotos%20Caso%20B%20(double)/MEMORIA%20CASO%20B.V.1%20(double).JPG) |
-| B.V.2 (double) (```driver='evx'``` and ```overwrite_a=True```) | ![B.V.2 (double)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Fotos%20Caso%20B%20(double)/CPU%20CASO%20B.V.2%20(double).JPG) | ![B.V.2 (double)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Fotos%20Caso%20B%20(double)/MEMORIA%20CASO%20B.V.2%20(double).JPG) |
+| B.V.2 (double) (```driver='evx'``` and ```overwrite_a=True```) | ![B.V.2 (double)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Fotos%20Caso%20B%20(double)/CPU%20CASO%20B.V.2%20(double).JPG) | ![B.V.2 (double)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Fotos%20Caso%20B%20(double)/MEMORIA%20CASO%20B.V.2%20(double).JPG) |  
+
+Se puede evidenciar que en general en las corridas el procesadro alcanza su máximo en los puntos con mayores valores de N, y es en esos casos que la memoria ram tiende a subir un poco, para ayudar a procesar la información. Otro aspecto interesante a señalar, que para el caso B opción II y V el procesador no usaba en promedio ni el 50% y la memoria nunca se vio afectada, lo curioso es que estos casos fueron los que más tiempo demoraron en ejecutarse.  
+
+A contunación se muestras los gráficos encontrados:
+
+| **CASO A (float)**  ![A (float)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Comparaci%C3%B3n%20Caso%20A%20(float).png) | **CASO A (double)**  ![A (double)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Comparaci%C3%B3n%20Caso%20A%20(double).png) |
+| **CASO B (float)**  ![B (float)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Comparaci%C3%B3n%20Caso%20B%20(float).png) | **CASO B (double)**  ![B (double)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Comparaci%C3%B3n%20Caso%20B%20(double).png) |
 
 
 ### Preguntas  
