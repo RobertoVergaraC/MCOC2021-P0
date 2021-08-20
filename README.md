@@ -48,7 +48,7 @@
 
 En primer lugar cabe señalar que rendimiento.txt corresponde a un archivo que por cada línea es una lista de listas, en donde cada una de estas es considerada una nueva corrida y está ordenada de la siguiente manera : [[Ns],[dts],[mems]]
 
-![Desempeño Matmul](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Desempe%C3%B1o%20MATMUL.png)
+![Desempeño Matmul](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%202/Desempe%C3%B1o%20MATMUL.png)
 
 ### Preguntas
 
@@ -79,7 +79,7 @@ En primer lugar cabe señalar que rendimiento.txt corresponde a un archivo que p
 
 * **Durante la ejecución de su código ¿se utiliza más de un procesador? Muestre una imagen (screenshot) de su uso de procesador durante alguna corrida para confirmar.**  
 
-![Procesador durante corrida](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Procesador%20durante%20corrida.jpg) 
+![Procesador durante corrida](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%202/Procesador%20durante%20corrida.jpg) 
 
 Tal como se evidencia en la imágen, durante la ejecución del código se utilizan 8 procesadores, los cuales corresponden a todos los de mi CPU.  
 El hecho de que utilice los 8 procesadores (y con tanto %uso), es ya que el código necesita demasiados recursos y de esta manera utiliza demasiada CPU a tal punto de necesitar el 100% de su capacidad.
@@ -91,25 +91,25 @@ Se realizan 12 archivos .txt, uno por cada tipo en cada uno de los tres casos. E
 A continuación se muestrán las comparaciones de los casos por cada tipo de dato:
 
 **DTYPE: HALF**
-![HALF](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Desempe%C3%B1o%20INV%20CASO%20HALF.png)
+![HALF](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%203/Desempe%C3%B1o%20INV%20CASO%20HALF.png)
 
 **DTYPE: SINGLE**
-![SINGLE](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Desempe%C3%B1o%20INV%20CASO%20SINGLE.png)
+![SINGLE](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%203/Desempe%C3%B1o%20INV%20CASO%20SINGLE.png)
 
 **DTYPE: DOUBLE**
-![DOUBLE](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Desempe%C3%B1o%20INV%20CASO%20DOUBLE.png)
+![DOUBLE](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%203/Desempe%C3%B1o%20INV%20CASO%20DOUBLE.png)
 
 **DTYPE: LONGDOUBLE**
-![LONGDOUBLE](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Desempe%C3%B1o%20INV%20CASO%20LONGDOUBLE.png)
+![LONGDOUBLE](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%203/Desempe%C3%B1o%20INV%20CASO%20LONGDOUBLE.png)
 
 
 Además tanto el desempeño del procesador como de la memoria en todos los casos que los códigos funcionaron los resultado fueron prácticamente idénticos, es decir el procesador usando casi todos sus recursos (todos incluso), mientras que la memoria prácticamente no cambiaba y si lo hacía era muy leve. Si hubo alguna diferencia fue prácticamente imperceptible.
 
 **Procesador durante corridas:**
-![CPU_INV](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/CPU%20DURANTE%20CORRIDA%20INV.jpg)
+![CPU_INV](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%203/CPU%20DURANTE%20CORRIDA%20INV.jpg)
 
 **Memoria durante corridas:**
-![MEMORIA_INV](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/MEMORIA%20DURANTE%20CORRIDA%20INV.jpg)  
+![MEMORIA_INV](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%203/MEMORIA%20DURANTE%20CORRIDA%20INV.jpg)  
   
 
 ### Preguntas
