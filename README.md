@@ -124,3 +124,48 @@ La lógica del paralelismo es realizar varias tareas al mismo tiempo, para esto 
 Es importante señalar que en mi caso, para todos los tipos de datos el tiempo de corrida fue similar, levemente los datos más pequeños fueron un poco más rápido, pero es de manera prácticamente imperceptible. Esto quiere decir que mi pc, para poder correr datos de half utiliza varios de estos "mini procesadores" y con la capacidad de los caché si no es al máximo, muy cercano, en el caso de un dato más grande como longdouble, probablemente este usando todo los recursos.  
 Por último, para el caso de la memoria, al tener una gran cantidad y con mucho desuso no significó un gran problema para todos los tipos de datos, sin embargo con datos pequeños esta trabajo leve e imperciptiblemente menos que con datos más grandes.
 
+# Desempeño de SOLVE y EIGH
+
+Se realizaron 4 archivos .py (uno para todos los puntos del caso A, otro para todos loss puntos del caso B y esto por cada tipo de dato), además de estos se obtuvieron 4 archivos .txt los cuales por línea contienen los subcasos de A y B, pero solo los valores promedios de las 10 corridas por subcaso (son del tipo [[Ns],[dts]]).    
+
+A continuación se muestra una tabla con los desempeños del procesador y la memoria por cada caso (subcaso) realizado.
+
+| CASO | PROCESADOR (CPU) | MEMORIA (RAM) |
+| ------------- | ------------- | ------------- |
+| A.I (float) (```python x = Am1 x b```) | ![A.I (float)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Fotos%20Caso%20A%20(float)/CPU%20CASO%20A.I%20(float).jpg)  | ![A.I (float)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Fotos%20Caso%20A%20(float)/MEMORIA%20CASO%20A.I%20(float).jpg) |
+| A.II (float) (```python scipy.linalg.solve``` by default) | ![A.II (float)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Fotos%20Caso%20A%20(float)/CPU%20CASO%20A.II%20(float).jpg)  | ![A.II (float)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Fotos%20Caso%20A%20(float)/MEMORIA%20CASO%20A.II%20(float).jpg) |
+| A.III (float) (using ```python assume_a='pos'```) | ![A.III (float)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Fotos%20Caso%20A%20(float)/CPU%20CASO%20A.III%20(float).jpg)  | ![A.III (float)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Fotos%20Caso%20A%20(float)/MEMORIA%20CASO%20A.III%20(float).jpg) |
+| A.IV (float) (using ```python assume_a='sym'```) | ![A.IV (float)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Fotos%20Caso%20A%20(float)/CPU%20CASO%20A.IV%20(float).jpg)  | ![A.IV (float)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Fotos%20Caso%20A%20(float)/MEMORIA%20CASO%20A.IV%20(float).jpg) |
+| A.V (float) (using ```python overwrite_a=True```) | ![A.V (float)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Fotos%20Caso%20A%20(float)/CPU%20CASO%20A.V%20(float).jpg)  | ![A.V (float)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Fotos%20Caso%20A%20(float)/MEMORIA%20CASO%20A.V%20(float).jpg) |
+| A.VI (float) (using ```python overwrite_b=True```) | ![A.VI (float)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Fotos%20Caso%20A%20(float)/CPU%20CASO%20A.VI%20(float).jpg)  | ![A.VI (float)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Fotos%20Caso%20A%20(float)/MEMORIA%20CASO%20A.VI%20(float).jpg) |
+| A.VII (float) (using ```python overwrite_a=True``` and ```python overwrite_a=True```| ![A.VII (float)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Fotos%20Caso%20A%20(float)/CPU%20CASO%20A.VI%20(float).jpg)  | ![A.VII (float)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Fotos%20Caso%20A%20(float)/CPU%20MEMORIA%20A.VI%20(float).jpg) |
+| A.I (double) (```python x = Am1 x b```) | ![A.I (double)]()  | ![A.I (double)]() |
+| A.II (double) (```python scipy.linalg.solve``` by default) | ![A.II (double)]()  | ![A.II (double)]() |
+| A.III (double) (using ```python assume_a='pos'```) | ![A.III (double)]()  | ![A.III (double)]() |
+| A.IV (double) (using ```python assume_a='sym'```) | ![A.IV (double)]()  | ![A.IV (double)]() |
+| A.V (double) (using ```python overwrite_a=True```) | ![A.V (double)]()  | ![A.V (double)]() |
+| A.VI (double) (using ```python overwrite_b=True```) | ![A.VI (double)]()  | ![A.VI (double)]() |
+| A.VII (double) (using ```python overwrite_a=True``` and ```python overwrite_a=True```| ![A.VII (double)]()  | ![A.VII (double)]() |
+| B.I (float) (```python scipy.linalg.eigh``` by default) | ![B.I (float)]() | ![B.I (float)]() |
+| B.II.1 (float) (```python driver='ev'``` and ```python overwrite_a=False```) | ![B.II.1 (float)]() | ![B.II.1 (float)]() |
+| B.II.2 (float) (```python driver='ev'``` and ```python overwrite_a=True```) | ![B.II.2 (float)]() | ![B.II.2 (float)]() |
+| B.III.1 (float) (```python driver='evd'``` and ```python overwrite_a=False```) | ![B.III.1 (float)]() | ![B.III.1 (float)]() |
+| B.III.2 (float) (```python driver='evd'``` and ```python overwrite_a=True```) | ![B.III.2 (float)]() | ![B.III.2 (float)]() |
+| B.VI.1 (float) (```python driver='evr'``` and ```python overwrite_a=False```) | ![B.IV.1 (float)]() | ![B.IV.1 (float)]() |
+| B.VI.2 (float) (```python driver='evr'``` and ```python overwrite_a=True```) | ![B.IV.2 (float)]() | ![B.IV.2 (float)]() |
+| B.V.1 (float) (```python driver='evx'``` and ```python overwrite_a=False```) | ![B.V.1 (float)]() | ![B.V.1 (float)]() |
+| B.V.2 (float) (```python driver='evx'``` and ```python overwrite_a=True```) | ![B.V.2 (float)]() | ![B.V.2 (float)]() |
+| B.I (double) (```python scipy.linalg.eigh``` by default) | ![B.I (double)]() | ![B.I (double)]() |
+| B.II.1 (double) (```python driver='ev'``` and ```python overwrite_a=False```) | ![B.II.1 (double)]() | ![B.II.1 (double)]() |
+| B.II.2 (double) (```python driver='ev'``` and ```python overwrite_a=True```) | ![B.II.2 (double)]() | ![B.II.2 (double)]() |
+| B.III.1 (double) (```python driver='evd'``` and ```python overwrite_a=False```) | ![B.III.1 (double)]() | ![B.III.1 (double)]() |
+| B.III.2 (double) (```python driver='evd'``` and ```python overwrite_a=True```) | ![B.III.2 (double)]() | ![B.III.2 (double)]() |
+| B.VI.1 (double) (```python driver='evr'``` and ```python overwrite_a=False```) | ![B.IV.1 (double)]() | ![B.IV.1 (double)]() |
+| B.VI.2 (double) (```python driver='evr'``` and ```python overwrite_a=True```) | ![B.IV.2 (double)]() | ![B.IV.2 (double)]() |
+| B.V.1 (double) (```python driver='evx'``` and ```python overwrite_a=False```) | ![B.V.1 (double)]() | ![B.V.1 (double)]() |
+| B.V.2 (double) (```python driver='evx'``` and ```python overwrite_a=True```) | ![B.V.2 (double)]() | ![B.V.2 (double)]() |
+
+
+### Preguntas  
+
+* **Haga un comentario completo respecto de todo lo que ve en términos de desempeño en cada problema. ¿Como es la variabilidad del tiempo de ejecucion para cada algoritmo? ¿Qué algoritmo gana (en promedio) en cada caso? ¿Depende del tamaño de la matriz? ¿A que se puede deber la superioridad de cada opción? ¿Su computador usa más de un proceso por cada corrida? ¿Que hay del uso de memoria (como crece)?** 
