@@ -165,7 +165,7 @@ A continuación se muestra una tabla con los desempeños del procesador y la mem
 | B.V.1 (double) (```driver='evx'``` and ```overwrite_a=False```) | ![B.V.1 (double)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Fotos%20Caso%20B%20(double)/CPU%20CASO%20B.V.1%20(double).JPG) | ![B.V.1 (double)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Fotos%20Caso%20B%20(double)/MEMORIA%20CASO%20B.V.1%20(double).JPG) |
 | B.V.2 (double) (```driver='evx'``` and ```overwrite_a=True```) | ![B.V.2 (double)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Fotos%20Caso%20B%20(double)/CPU%20CASO%20B.V.2%20(double).JPG) | ![B.V.2 (double)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Fotos%20Caso%20B%20(double)/MEMORIA%20CASO%20B.V.2%20(double).JPG) |  
 
-Se puede evidenciar que en general en las corridas el procesadro alcanza su máximo en los puntos con mayores valores de N, y es en esos casos que la memoria ram tiende a subir un poco, para ayudar a procesar la información. Otro aspecto interesante a señalar, que para el caso B opción II y V el procesador no usaba en promedio ni el 50% y la memoria nunca se vio afectada, lo curioso es que estos casos fueron los que más tiempo demoraron en ejecutarse.  
+Se puede evidenciar que en general en las corridas el procesadro alcanza su máximo en los puntos con mayores valores de N, y es en esos casos que la memoria ram tiende a subir un poco, para ayudar a procesar la información. Otro aspecto interesante a señalar, que para el caso B opción II y V el procesador no usaba en promedio ni el 50% y la memoria nunca se vio afectada, lo curioso es que estos casos fueron los que más tiempo demoraron en ejecutarse (esto explica mejor su tiempo de duración ya que al utilizar menos recursos su tiempo de realización es más lento, quizas esto puede deberse a que la operación no tenía una dificultad tan grande pero si un proceso extenso).  
 
 A continuación se muestran los gráficos encontrados:
 
@@ -175,9 +175,48 @@ A continuación se muestran los gráficos encontrados:
 
 | **CASO B (float)** | **CASO B (double)** |
 | ------------- | ------------- |
-| ![B (float)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Comparaci%C3%B3n%20Caso%20B%20(float).png) | ![B (double)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Comparaci%C3%B3n%20Caso%20B%20(double).png) |
+| ![B (float)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Comparaci%C3%B3n%20Caso%20B%20(float).png) | ![B (double)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Comparaci%C3%B3n%20Caso%20B%20(double).png) |  
+
+De los gráficos para el caso A, se puede apreciar que son muy similares entre ellos, casi no hay diferencias, y si las hay no tienen un claro patrón hasta el final (es decir hasta los valores más grandes de N), queda claro que la opción de calcular la inversa y luego calcular esta por la matriz b es la manera más lenta de realizar la operación, mientrás que la más rápida es utilizando scipy.linalg.solver asumiento una matriz a positiva (```assume_a='pos'```). Es importante señalar que los resultados entre el caso A usando datos de tipo float vs usando datos de tipo double son prácticamente idénticos.  
+
+Por otro lado, observando lo ocurrido en el caso B, se puede apreciar que si existen mayores diferencias entre las diferentes opciones, en donde las opciones II.1, II.2, V.1 y V.2 (```driver='ev y driver=evx```) son evidentemente más lentas, mientras que todas las demás tienen tiempos prácticamente iguales obteniendo un mejor rendimiento. Al igual que el caso anterior, la diferencia entre el tipo de dato double y float es prácticamente imperceptible.  
 
 
 ### Preguntas  
 
-* **Haga un comentario completo respecto de todo lo que ve en términos de desempeño en cada problema. ¿Como es la variabilidad del tiempo de ejecucion para cada algoritmo? ¿Qué algoritmo gana (en promedio) en cada caso? ¿Depende del tamaño de la matriz? ¿A que se puede deber la superioridad de cada opción? ¿Su computador usa más de un proceso por cada corrida? ¿Que hay del uso de memoria (como crece)?** 
+* **Haga un comentario completo respecto de todo lo que ve en términos de desempeño en cada problema.**  
+
+Tal como se menciona antes se puede apreciar como en el caso igual son todos los casos muy parecidos, siendo el método de utilizar la inversa el más lento, mientras que el más rápido es asumiendo que la matriz A es positiva.  
+Para el caso B, usar ```driver='ev y driver=ev``` relentizan considerablemente el proceso, mientras que los demás trabajan de manera más eficiente.  
+(Más comentarios debajo de los gráficos...).  
+
+* **¿Como es la variabilidad del tiempo de ejecucion para cada algoritmo?**  
+
+En el caso A se puede evidenciar que no hay tanta variabilidad de tiempo, pero que para valores de N entre aproximandamente 60 y 220 el caso más optimo será asumir una matriz A simétrica, mientras que para los todos los demás casos de N (menores y mayores), el tiempo de ejecución de usar scipy.linalg.solve asumiento una matriz positiva es mejor.  
+Para el caso B utilizando scipy.linalg.eigh, claramente hay una diferencia notable de tiempo entre los subcasos con ```driver='ev y driver=evx```, los cuales serán siempre más lentos, mientras que todos los demás casos tienen un comportamiento casi identico con un tiempo de ejecución considerablemente mejor.  
+
+Cabe agregar que el método scipy.linal.solve es evidentemente más rápido que scipy.linalg.eigh.  
+
+* **¿Qué algoritmo gana (en promedio) en cada caso?**  
+
+En el caso A en promedio el algoritmo más rápido es scipy.linalg.solve(assume_a='pos').  
+En el caso B en promedio el algoritmo más rápido es scipy.linalg.eigh(driver="evd", overwrite_a=True) --> Es levemente más rápido, prácticamente imperceptible.  
+
+* **¿Depende del tamaño de la matriz?**  
+
+Para el caso A, si es influyente el tamaño de la matriz, porque como ya mencioné antes el subcaso IV tiene mejor rendimiento que cualquiera con matrices de tamaño entre 60<N<220.  
+Para el caso B, el porte de la matriz no es un factor influyente, siempre existe el mismo comportamiento (si hay diferencias es muy imperceptible).  
+
+* **¿A que se puede deber la superioridad de cada opción?**  
+
+La superioridad de cada opción tanto en el caso A como en el caso B, se debe plenamente a los paquetes y el proceso que reliza "por detrás" los diferentes métodos con sus diferentes parámetros. Por ejemplo, si se utiliza un argumento overwrite_a=True, se utilizarían menos recursos, ya que no se esta creando una nueva matriz, sino que se está reescribiendo la misma, otros ejemplos podrían ser que al asumirla de un tipo (positiva o simétrica), en donde el cálculo es más fácil el paquete al estar informado, reliza "trucos" de resolución más óptimos.  
+
+* **¿Su computador usa más de un proceso por cada corrida?**  
+
+Tal como se evidencia en las imagenes del procesador, este utiliza los 8 procesadores lógicos para la mayoria de los casos, hay un par de excepciones en donde utiliza 2 al máximo y los demás en mitad del rendimiento, pero en estricto rigor siempre esta utilizando cerca del 100% de la meemoria de la CPU. Que el computador utilice más de un proceso significa que esta realizando muchas acciones diferentes simultaneamente y esto viene definido en parte por el computador (por que decide usar), pero también por las librerías y paquetes que se utilicen, los cuales puden requerir de hacer varias acciones en simultáneo para hacerlas de manera más eficiente.  
+
+* **¿Que hay del uso de memoria (como crece)?**  
+
+En mi caso, la memoria se vio muy poco influenciada, ya que mi procesador es bastante potente, solo cambiaba levemente cuando el procesador sobrepasaba el 100% de su rendimiento, y cuando lo hacía de todas maneras lo que cambiaba la memoria era muy poco. Probablemente esto haya ocurrido para los valroes de N que eran más grandes.  
+Todo lo anteriormente señalado, ocurre por la jerarquización de la memoria en los computadores.  
+
