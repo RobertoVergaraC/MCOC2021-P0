@@ -177,7 +177,7 @@ A continuación se muestran los gráficos encontrados:
 | ------------- | ------------- |
 | ![B (float)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Comparaci%C3%B3n%20Caso%20B%20(float).png) | ![B (double)](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%204/Comparaci%C3%B3n%20Caso%20B%20(double).png) |  
 
-De los gráficos para el caso A, se puede apreciar que son muy similares entre ellos, casi no hay diferencias, y si las hay no tienen un claro patrón hasta el final (es decir hasta los valores más grandes de N), queda claro que la opción de calcular la inversa y luego calcular esta por la matriz b es la manera más lenta de realizar la operación, mientrás que la más rápida es utilizando scipy.linalg.solver asumiento una matriz a positiva (```assume_a='pos'```). Es importante señalar que los resultados entre el caso A usando datos de tipo float vs usando datos de tipo double son prácticamente idénticos.  
+De los gráficos para el caso A, se puede apreciar que son muy similares entre ellos, casi no hay diferencias, y si las hay no tienen un claro patrón hasta el final (es decir hasta los valores más grandes de N), queda claro que la opción de calcular la inversa y luego multiplicar esta por la matriz b es la manera más lenta de realizar la operación, mientrás que la más rápida es utilizando scipy.linalg.solve asumiento una matriz A positiva (```assume_a='pos'```). Es importante señalar que los resultados entre el caso A usando datos de tipo float vs usando datos de tipo double son prácticamente idénticos.  
 
 Por otro lado, observando lo ocurrido en el caso B, se puede apreciar que si existen mayores diferencias entre las diferentes opciones, en donde las opciones II.1, II.2, V.1 y V.2 (```driver='ev y driver=evx```) son evidentemente más lentas, mientras que todas las demás tienen tiempos prácticamente iguales obteniendo un mejor rendimiento. Al igual que el caso anterior, la diferencia entre el tipo de dato double y float es prácticamente imperceptible.  
 
@@ -186,7 +186,7 @@ Por otro lado, observando lo ocurrido en el caso B, se puede apreciar que si exi
 
 * **Haga un comentario completo respecto de todo lo que ve en términos de desempeño en cada problema.**  
 
-Tal como se menciona antes se puede apreciar como en el caso igual son todos los casos muy parecidos, siendo el método de utilizar la inversa el más lento, mientras que el más rápido es asumiendo que la matriz A es positiva.  
+Tal como se menciona antes se puede apreciar como en el caso A son todos los casos muy parecidos, siendo el método de utilizar la inversa el más lento, mientras que el más rápido es asumiendo que la matriz A es positiva.  
 Para el caso B, usar ```driver='ev y driver=ev``` relentizan considerablemente el proceso, mientras que los demás trabajan de manera más eficiente.  
 (Más comentarios debajo de los gráficos...).  
 
@@ -205,18 +205,18 @@ En el caso B en promedio el algoritmo más rápido es scipy.linalg.eigh(driver="
 * **¿Depende del tamaño de la matriz?**  
 
 Para el caso A, si es influyente el tamaño de la matriz, porque como ya mencioné antes el subcaso IV tiene mejor rendimiento que cualquiera con matrices de tamaño entre 60<N<220.  
-Para el caso B, el porte de la matriz no es un factor influyente, siempre existe el mismo comportamiento (si hay diferencias es muy imperceptible).  
+Para el caso B, el porte de la matriz no es un factor influyente, siempre existe el mismo comportamiento (si hay diferencias es prácticamente imperceptible).  
 
 * **¿A que se puede deber la superioridad de cada opción?**  
 
-La superioridad de cada opción tanto en el caso A como en el caso B, se debe plenamente a los paquetes y el proceso que reliza "por detrás" los diferentes métodos con sus diferentes parámetros. Por ejemplo, si se utiliza un argumento overwrite_a=True, se utilizarían menos recursos, ya que no se esta creando una nueva matriz, sino que se está reescribiendo la misma, otros ejemplos podrían ser que al asumirla de un tipo (positiva o simétrica), en donde el cálculo es más fácil el paquete al estar informado, reliza "trucos" de resolución más óptimos.  
+La superioridad de cada opción tanto en el caso A como en el caso B, se debe plenamente a los paquetes y el proceso que reliza "por detrás" los diferentes métodos con sus diferentes parámetros. Por ejemplo, si se utiliza un argumento overwrite_a=True, se utilizarían menos recursos, ya que no se esta creando una nueva matriz, sino que se está reescribiendo la misma, otros ejemplos podrían ser que al asumirla de un tipo (positiva o simétrica), en donde el cálculo es más fácil, y el paquete al estar informado, realiza "trucos" de resolución más óptimos.  
 
 * **¿Su computador usa más de un proceso por cada corrida?**  
 
-Tal como se evidencia en las imagenes del procesador, este utiliza los 8 procesadores lógicos para la mayoria de los casos, hay un par de excepciones en donde utiliza 2 al máximo y los demás en mitad del rendimiento, pero en estricto rigor siempre esta utilizando cerca del 100% de la meemoria de la CPU. Que el computador utilice más de un proceso significa que esta realizando muchas acciones diferentes simultaneamente y esto viene definido en parte por el computador (por que decide usar), pero también por las librerías y paquetes que se utilicen, los cuales puden requerir de hacer varias acciones en simultáneo para hacerlas de manera más eficiente.  
+Tal como se evidencia en las imagenes del procesador, este utiliza los 8 procesadores lógicos para la mayoria de los casos, hay un par de excepciones en donde utiliza 2 al máximo y los demás en mitad del rendimiento, pero en estricto rigor siempre esta utilizando cerca del 100% de la memoria de la CPU en los casos con N altos. Que el computador utilice más de un proceso significa que esta realizando muchas acciones diferentes simultaneamente y esto viene definido en parte por el computador (por que decide usar), pero también por las librerías y paquetes que se utilicen, los cuales puden requerir de hacer varias acciones en simultáneo para hacerlas de manera más eficiente.  
 
 * **¿Que hay del uso de memoria (como crece)?**  
 
-En mi caso, la memoria se vio muy poco influenciada, ya que mi procesador es bastante potente, solo cambiaba levemente cuando el procesador sobrepasaba el 100% de su rendimiento, y cuando lo hacía de todas maneras lo que cambiaba la memoria era muy poco. Probablemente esto haya ocurrido para los valroes de N que eran más grandes.  
+En mi caso, la memoria se vio muy poco afectada, ya que mi procesador es bastante potente, solo cambiaba levemente cuando el procesador sobrepasaba el 100% de su rendimiento, y cuando lo hacía de todas maneras lo que cambiaba la memoria era muy poco. Probablemente esto haya ocurrido para los valores de N que eran más grandes.  
 Todo lo anteriormente señalado, ocurre por la jerarquización de la memoria en los computadores.  
 
