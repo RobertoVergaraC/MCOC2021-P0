@@ -228,9 +228,9 @@ Se realizó un archivo .py, el cual desarrollaba la operación MATMUL tanto con 
 
 Para realizar el ensamblaje tanto de las matrices dispersas como de las llenas, se definieron las siguientes funciones para poder desarrollarlas:  
 
-| **Función Laplaciana Matrices Llenas** | **Función Laplaciana Matrices Dispersas** |
-| ------------- | ------------- |
-| ```def matriz_laplaciana_llena(N, dtype):
+**Función Laplaciana Matrices Llenas**
+```
+def matriz_laplaciana_llena(N, dtype):
 	A = zeros((N,N), dtype = dtype)
 	for i in range(N):
 		A[i,i] = 2
@@ -238,9 +238,14 @@ Para realizar el ensamblaje tanto de las matrices dispersas como de las llenas, 
 			if abs(i - j) == 1:
 				A[i,j] = -1
 				A[j,i] = -1
-	return A``` | ```def matriz_laplaciana_dispersa(N, dtype):
-	return 2*sparse.eye(N, dtype = dtype) - sparse.eye(N, N, 1, dtype = dtype) - sparse.eye(N, N, -1, dtype = dtype)``` |  
-                          
+	return A  
+```  
+
+**Función Laplaciana Matrices Dispersas**
+```
+def matriz_laplaciana_dispersa(N, dtype):
+	return 2*sparse.eye(N, dtype = dtype) - sparse.eye(N, N, 1, dtype = dtype) - sparse.eye(N, N, -1, dtype = dtype)
+```                            
    
 Para las matrices llenas no se pudo utilizar el método eye, ya que para el tipo de dato double no lo soportaba, mientras que para el caso de matrices dispersas si.  
 
