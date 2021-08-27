@@ -220,3 +220,43 @@ Tal como se evidencia en las imagenes del procesador, este utiliza los 8 procesa
 En mi caso, la memoria se vio muy poco afectada, ya que mi procesador es bastante potente, solo cambiaba levemente cuando el procesador sobrepasaba el 100% de su rendimiento, y cuando lo hacía de todas maneras lo que cambiaba la memoria era muy poco. Probablemente esto haya ocurrido para los valores de N que eran más grandes.  
 Todo lo anteriormente señalado, ocurre por la jerarquización de la memoria en los computadores.  
 
+# Matrices dispersas y complejidad computacional
+
+Se realizó un archivo .py, el cual desarrollaba la operación MATMUL tanto con matrices llenas como con dispersas, se puede notar que tanto el tiempo de ensamblaje de matrices laplacianas, tanto como resolver la operación, era infinitamente más rápido usando matrices dispersas, es más, para poder notar el gráfico, para las matrices dispersas se tuvo que utilizas un Nmax = 1.000.000.  
+
+### Ensamblaje
+
+Para realizar el ensamblaje tanto de las matrices dispersas como de las llenas, se definieron las siguientes funciones para poder desarrollarlas:  
+
+| **Función Laplaciana Matrices Llenas** | **Función Laplaciana Matrices Dispersas** |
+| ------------- | ------------- |
+| ```def matriz_laplaciana_llena(N, dtype):
+	      A = zeros((N,N), dtype = dtype)
+	      for i in range(N):
+		       A[i,i] = 2
+		       for j in range(max(0,i-2),i):
+			        if abs(i - j) == 1:
+				         A[i,j] = -1
+				         A[j,i] = -1
+	      return A``` | ```def matriz_laplaciana_dispersa(N, dtype):
+	                         return 2*sparse.eye(N, dtype = dtype) - sparse.eye(N, N, 1, dtype = dtype) - sparse.eye(N, N, -1, dtype = dtype)``` |  
+                          
+   
+Para las matrices llenas no se pudo utilizar el método eye, ya que para el tipo de dato double no lo soportaba, mientras que para el caso de matrices dispersas si.  
+
+### Solución
+
+Para la solución simplemente se uso el método matmul (@), pero es importante para el caso de las matrices dispersas antes de realizar la operación, tanto las matrices A como B se transformaron a una matriz de tipo CSR.  
+
+### Gráficos
+
+A continuación se muestran los gráficos encontrados:  
+
+| **Gráfico Caso Matrices Llenas** | **Gráfico Caso Matrices Dispersas** |
+| ------------- | ------------- |
+| ![Matrices Llenas](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%205/Desempe%C3%B1o%20MATMUL%20Matrices%20Llenas.png) | ![Matrices Dispersas](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%205/Desempe%C3%B1o%20MATMUL%20Matrices%20Dispersas.png) |  
+
+Es importante descatacar que para poder desarrollar los gráficos representativos de complejidad computacional, se tuvo que trabajar pensando que se tenia un gráfico doblemente logarítmico, es decir del tipo $ log(y) = klog(x) + log(a) $ que otra manera de representarlo sería $ y = ax^{k} $. De esta manera de despejan los distintos niveles de complejidad, ya que se conoce un punto (el máximo) y su pendiente, quedando de la siguiente manera: $ \frac{Valor máximo ensamblaje/solución}{(Valor máximo de N)^{k}} \cdot (Valores de N)^2k $.  
+
+Luego se puede interpretar como para el caso de las matrices llenas para el caso del ensamblaje tiene un nivel de complejidad máxima de $ O(N^{2}) $ y para la solución de MATMUL en la parte final casi de $ O(N^{4}) $.  
+Para el caso de las matrices dispersas tuvieron que agregarse más valores ya que osino no se podía ver que hubiera una complejidad dada. FInalmente se puede notar que para el ensamblaje existe una complejidad máxima de $ O(N^{2}) $ y para el caso de la solución $ O(N^{2}) $.
