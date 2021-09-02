@@ -264,4 +264,62 @@ A continuación se muestran los gráficos encontrados:
 Es importante descatacar que para poder desarrollar los gráficos representativos de complejidad computacional, se tuvo que trabajar pensando que se tenia un gráfico doblemente logarítmico, es decir del tipo ![Eq1](https://latex.codecogs.com/png.latex?%5Cinline%20log%28y%29%20%3D%20k%20%5Ccdot%20log%28x%29%20&plus;%20log%28a%29) que otra manera de representarlo sería ![Eq2](https://latex.codecogs.com/png.latex?%5Cinline%20y%20%3D%20a%20%5Ccdot%20x%5E%7Bk%7D). De esta manera de despejan los distintos niveles de complejidad, ya que se conoce un punto (el máximo) y su pendiente, quedando de la siguiente manera: ![Eq3](https://latex.codecogs.com/png.latex?%5Cinline%20%5Cdisplaystyle%20%5Cfrac%7By_%7Bmax%7D%7D%7BN_%7Bmax%7D%5E%7Bk%7D%7D%20%5Ccdot%20N_%7Bvalues%7D%5E%7Bk%7D).  
 
 Luego se puede interpretar como para el caso de las matrices llenas para el caso del ensamblaje tiene un nivel de complejidad máxima de ![n2](https://latex.codecogs.com/png.latex?%5Cinline%20O%28N%5E%7B2%7D%29) y para la solución de MATMUL en la parte final casi de ![n4](https://latex.codecogs.com/png.latex?%5Cinline%20O%28N%5E%7B4%7D%29).  
-Para el caso de las matrices dispersas tuvieron que agregarse más valores ya que osino no se podía ver que hubiera una complejidad dada. Finalmente se puede notar que para el ensamblaje existe una complejidad máxima de ![n2](https://latex.codecogs.com/png.latex?%5Cinline%20O%28N%5E%7B2%7D%29) y para el caso de la solución de ![n2](https://latex.codecogs.com/png.latex?%5Cinline%20O%28N%5E%7B2%7D%29).
+Para el caso de las matrices dispersas tuvieron que agregarse más valores ya que osino no se podía ver que hubiera una complejidad dada. Finalmente se puede notar que para el ensamblaje existe una complejidad máxima de ![n2](https://latex.codecogs.com/png.latex?%5Cinline%20O%28N%5E%7B2%7D%29) y para el caso de la solución de ![n2](https://latex.codecogs.com/png.latex?%5Cinline%20O%28N%5E%7B2%7D%29).  
+
+# Matrices dispersas y complejidad computacional (parte 2)  
+
+Para esta entrega se realizaron 4 archivos .py, los cuales corresponden a los dos métodos a utilizar para matrices llenas y para dispersas. Para las matrices llenas se optó por usar las versiones más eficientes utilizando así el método de la inversa (caso con ```overwrite_a=True```) y de solve (```assume_a='pos'```), para así compararlo con las matrices dispersas, que en todo caso, siempre lograron una mejor eficiencia.  
+
+### Solución  
+
+**Inversa:** Para la solución simplemente se uso el método inv de scipy.linalg, pero es importante que para el caso de las matrices dispersas antes de realizar la operación, la matriz 'A' es necesaria tranformarla al tipo CSC, ya que de está manera el método consigue la mejor eficiencia.  
+**Solve:** Al igual que en el caso pasado, para el caso de matrices llenas se utilizo el método solve de scipy.linalg, mientras que para las matrices dispersas se utilizó el método spsolve de scipy.sparse.linalg, en donde la matriz 'A' (laplaciana) es transformada al tipo CSR, mientras que la matriz 'b', al ser una matriz compuesta de solo unos, no es necesario realizar ningún tipo de transformación.  
+
+### Gráficos  
+
+A continuación se muestran los gráficos encontrados:  
+
+-> #### **CASO INVERSA** <-  
+| **Gráfico Caso Matrices Llenas (```overwrite_a=True```)** | **Gráfico Caso Matrices Dispersas** |
+| ------------- | ------------- |
+| ![Matrices Llenas INV](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%206/Desempe%C3%B1o%20INV%20Matrices%20Llenas.png) | ![Matrices Dispersas INV](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%206/Desempe%C3%B1o%20INV%20Matrices%20Dispersas.png) |  
+
+-> #### **CASO SOLVE** <-  
+| **Gráfico Caso Matrices Llenas (```assume_a='pos'```)** | **Gráfico Caso Matrices Dispersas** |
+| ------------- | ------------- |
+| ![Matrices Llenas SOLVE](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%206/Desempe%C3%B1o%20SOLVE%20Matrices%20Llenas.png) | ![Matrices Dispersas SOLVE](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%206/Desempe%C3%B1o%20SOLVE%20Matrices%20Dispersas.png) |  
+
+FALTA ANÁLISIS DE LOS GRÁFICOS!!!!!  
+
+### Ensamblaje Laplaciana  
+
+->**Función Laplaciana Matrices Llenas**<-  
+```python
+def laplaciana(N, dtype):
+	A = zeros((N,N), dtype = dtype)
+	for i in range(N):
+		A[i,i] = 2
+		for j in range(max(0,i-2),i):
+			if abs(i - j) == 1:
+				A[i,j] = -1
+				A[j,i] = -1
+	return A
+```  
+
+->**Función Laplaciana Matrices Dispersas**<-  
+```python
+def laplaciana(N, dtype):
+	return 2*sp.eye(N, dtype = dtype) - sp.eye(N, N, 1, dtype = dtype) - sp.eye(N, N, -1, dtype = dtype)
+```   
+
+FALTA COMENTARIO "Comente cómo esta elección se ve reflejada en el desempeño y complejidad algorítmica mostrada. "  
+
+### Preguntas
+
+* **Comente las diferencias que ve en el comportamiento de los algoritmos en el caso de matrices llenas y dispersas.**  
+
+* **¿Cual parece la complejidad asintótica (para N→∞)  para el ensamblado y solución en ambos casos y porqué?**  
+
+* **¿Como afecta el tamaño de las matrices al comportamiento aparente?**  
+
+* **¿Qué tan estables son las corridas (se parecen todas entre si siempre, nunca, en un rango)?**  
