@@ -315,7 +315,7 @@ def laplaciana(N, dtype):
 
 * **Comente cómo esta elección se ve reflejada en el desempeño y complejidad algorítmica mostrada.**  
 En primer lugar, se puede notar como en el caso de la laplaciana de matrices dispersas el rendimiento es mucho mejor, esto puede deberse principalmente a dos factores:  
-1.- El uso de la función 'eye' es mucho más eficiente que reemplazar lso elementos de una lista (caso laplaciana dispersas vs caso laplaciana llenas).
+1.- El uso de la función 'eye' es mucho más eficiente que reemplazar lso elementos de una lista (caso laplaciana dispersas vs caso laplaciana llenas).  
 2.- Utilizar el método scipy.sparse procesa los datos mucho más rápido.
 Debido a todo lo aprendido se puede deducir que en general la opción 2 será más siginficante, ya que matrices dispersas son mucho más eficientes que las llenas.  
 
