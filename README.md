@@ -292,8 +292,6 @@ A continuación se muestran los gráficos encontrados:
 | ------------- | ------------- |
 | ![Matrices Llenas SOLVE](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%206/Desempe%C3%B1o%20SOLVE%20Matrices%20Llenas.png) | ![Matrices Dispersas SOLVE](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%206/Desempe%C3%B1o%20SOLVE%20Matrices%20Dispersas.png) |  
 
-FALTA ANÁLISIS DE LOS GRÁFICOS!!!!!  
-
 ### Ensamblaje Laplaciana  
 	
 **Función Laplaciana Matrices Llenas**  
@@ -315,7 +313,15 @@ def laplaciana(N, dtype):
 	return 2*sp.eye(N, dtype = dtype) - sp.eye(N, N, 1, dtype = dtype) - sp.eye(N, N, -1, dtype = dtype)
 ```   
 
-FALTA COMENTARIO "Comente cómo esta elección se ve reflejada en el desempeño y complejidad algorítmica mostrada. "  
+* **Comente cómo esta elección se ve reflejada en el desempeño y complejidad algorítmica mostrada.**  
+En primer lugar, se puede notar como en el caso de la laplaciana de matrices dispersas el rendimiento es mucho mejor, esto puede deberse principalmente a dos factores:  
+1.- El uso de la función 'eye' es mucho más eficiente que reemplazar lso elementos de una lista (caso laplaciana dispersas vs caso laplaciana llenas).
+2.- Utilizar el método scipy.sparse procesa los datos mucho más rápido.
+Debido a todo lo aprendido se puede deducir que en general la opción 2 será más siginficante, ya que matrices dispersas son mucho más eficientes que las llenas.  
+
+Cabe señalar que la manera de almacenar los datos de las matrices llenas, tal como indica el nombre, es guardando toda la información y por ende al momento de realizar oepraciones, muchos procesos que realiza son reiterativos e innecesarios, al contrario de las matrices dispersas que solo guarda los valores importantes y los demás los da conocidos por teória (guarda los numeros y los 0 no, por lo que por ejemplo multiplicaciones por 0 no los toma en consideración). Por lo anteriormente señalado, lógicamente, la manera que trabaja scipy.sparse vs scipy será mucho más eficiente obteniendo un rendimeinto mucho mejor (sobretodo en una matriz laplaciana la cual contiene muchos '0').  
+
+Por último, podemos argumentar que la complejidad algorítmica mostrada es directamente proporcional al valor de N, pero utilizando un mismo valor de N, las matrices llenas tienen una complejidad mayor a las de las dispersas. Para obtener la misma complejidad entre estos dos tipos de matrices se necesita un valor de N muy superior en el caso de las matrices dispersas para poder igualar la complejidad de las matrices llenas.
 
 ### Preguntas
 
