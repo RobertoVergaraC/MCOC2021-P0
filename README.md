@@ -279,20 +279,15 @@ Para esta entrega se realizaron 4 archivos .py, los cuales corresponden a los do
 
 A continuación se muestran los gráficos encontrados:  
 
-<center>
-	
 #### **CASO INVERSA**  
-	
-</center>
+
 | **Gráfico Caso Matrices Llenas (```overwrite_a=True```)** | **Gráfico Caso Matrices Dispersas** |
 | ------------- | ------------- |
 | ![Matrices Llenas INV](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%206/Desempe%C3%B1o%20INV%20Matrices%20Llenas.png) | ![Matrices Dispersas INV](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%206/Desempe%C3%B1o%20INV%20Matrices%20Dispersas.png) |  
 
-<center>
 	
-#### **CASO SOLVE**
-	
-</center>
+#### **CASO SOLVE**  
+
 | **Gráfico Caso Matrices Llenas (```assume_a='pos'```)** | **Gráfico Caso Matrices Dispersas** |
 | ------------- | ------------- |
 | ![Matrices Llenas SOLVE](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%206/Desempe%C3%B1o%20SOLVE%20Matrices%20Llenas.png) | ![Matrices Dispersas SOLVE](https://github.com/RobertoVergaraC/MCOC2021-P0/blob/main/Entrega%206/Desempe%C3%B1o%20SOLVE%20Matrices%20Dispersas.png) |  
@@ -300,12 +295,8 @@ A continuación se muestran los gráficos encontrados:
 FALTA ANÁLISIS DE LOS GRÁFICOS!!!!!  
 
 ### Ensamblaje Laplaciana  
-
-<center>
 	
 **Función Laplaciana Matrices Llenas**  
-
-</center>
 ```python
 def laplaciana(N, dtype):
 	A = zeros((N,N), dtype = dtype)
@@ -318,11 +309,7 @@ def laplaciana(N, dtype):
 	return A
 ```  
 
-<center>
-	
 **Función Laplaciana Matrices Dispersas**  
-	
-</center>
 ```python
 def laplaciana(N, dtype):
 	return 2*sp.eye(N, dtype = dtype) - sp.eye(N, N, 1, dtype = dtype) - sp.eye(N, N, -1, dtype = dtype)
